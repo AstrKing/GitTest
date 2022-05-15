@@ -10,6 +10,6 @@ import org.springframework.web.bind.annotation.RestController;
 public class Controller {
     @RequestMapping("/hello")
     public String hello() {
-        return "12345";
+        return "12345ddd";
     }
 }
