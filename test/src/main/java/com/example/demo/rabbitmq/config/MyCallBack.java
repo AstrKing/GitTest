@@ -53,7 +53,7 @@ public class MyCallBack implements RabbitTemplate.ConfirmCallback,RabbitTemplate
     @Override
     public void confirm(CorrelationData correlationData, boolean ack, String cause) {
         id = correlationData != null ? correlationData.getId() : "";
-        log.info("【MyCallBack】为"+id);
+//        log.info("【MyCallBack】为"+id);
         if (ack){
             log.info("消息发送成功，id 是{} ",id);
         }else{
