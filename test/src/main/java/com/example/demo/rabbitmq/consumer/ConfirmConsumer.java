@@ -14,6 +14,6 @@ import org.springframework.stereotype.Component;
 public class ConfirmConsumer {
     @RabbitListener(queues = {"confirm_queue"})
     public void receiveMsg(Message message){
-       log.info("接收到的消息为: " + new String(message.getBody()));
+       log.info("接收到的消息为:" + new String(message.getBody()));
     }
 }
