@@ -18,7 +18,7 @@ public class SimpleDateFormatTest01 {
     public static void main(String[] args) throws InterruptedException {
         final Semaphore semaphore = new Semaphore(THREAD_COUNT);
         final CountDownLatch countDownLatch = new CountDownLatch(EXECUTE_COUNT);
-        ExecutorService executorService = Executors.newCachedThreadPool();
+        ExecutorService executorService = Executors.newWorkStealingPool();
         for (int i = 0; i < EXECUTE_COUNT; i++) {
             executorService.execute(()->{
                 try {
