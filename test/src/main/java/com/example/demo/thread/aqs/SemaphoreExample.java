@@ -1,0 +1,40 @@
+package com.example.demo.thread.aqs;
+
+import lombok.extern.slf4j.Slf4j;
+
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
+import java.util.concurrent.Semaphore;
+
+@Slf4j
+public class SemaphoreExample {
+    private static final int threadCount = 200;
+
+    private static void test(int threadNum) throws InterruptedException {
+        log.info("{}", threadNum);
+        Thread.sleep(1000);
+    }
+
+    public static void main(String[] args) throws InterruptedException {
+        ExecutorService exec = Executors.newCachedThreadPool();
+        final Semaphore semaphore = new Semaphore(3);
+        for (int i = 0; i < threadCount; i++) {
+            final int threadNum = i;
+            exec.execute(() -> {
+                try {
+            //尝试获取一个许可，也可以尝试获取多个许可，
+            //支持尝试获取许可超时设置，超时后不再等待后续线程的执行
+            //具体可以参见Semaphore的源码
+                    if (semaphore.tryAcquire()) {
+                        test(threadNum);
+                        semaphore.release(); //释放一个许可
+                    }
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+            });
+        }
+        log.info("finish");
+        exec.shutdown();
+    }
+}
