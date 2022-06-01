@@ -5,6 +5,9 @@ public class Teacher extends Person {
     @DIYFieldAnnotation(sex = "女")
     private String sex;
 
+    public Teacher() {
+    }
+
     @Override
     public void hobby() {
         System.out.println(DIYEnum.TEACHER.getWorker());
