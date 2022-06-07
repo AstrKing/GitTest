@@ -1,5 +1,6 @@
 package com.example.demo.thread;
 
+@SuppressWarnings("InfiniteLoopStatement")
 public class WaitingState implements Runnable{
     @Override
     public void run() {

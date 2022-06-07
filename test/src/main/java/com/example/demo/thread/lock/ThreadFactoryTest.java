@@ -6,7 +6,6 @@ import java.util.concurrent.ThreadFactory;
 import java.util.concurrent.TimeUnit;
 
 class DaemonThreadFactory implements ThreadFactory {
-
     @Override
     public Thread newThread(Runnable r) {
         Thread t = new Thread(r);
@@ -16,7 +15,6 @@ class DaemonThreadFactory implements ThreadFactory {
 }
 
 class DaemonFromFactory implements Runnable{
-
     @Override
     public void run() {
         while (true){

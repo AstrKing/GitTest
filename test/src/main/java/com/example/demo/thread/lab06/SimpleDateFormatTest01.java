@@ -43,7 +43,6 @@ public class SimpleDateFormatTest01 {
                 countDownLatch.countDown();
             });
         }
-
         countDownLatch.await();
         executorService.shutdown();
         System.out.println("所有线程格式化日期成功");

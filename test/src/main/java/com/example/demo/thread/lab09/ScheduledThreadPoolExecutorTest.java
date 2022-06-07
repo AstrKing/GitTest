@@ -8,12 +8,7 @@ public class ScheduledThreadPoolExecutorTest {
     public static void main(String[] args) throws InterruptedException {
         ScheduledExecutorService scheduledExecutorService =
                 Executors.newScheduledThreadPool(3);
-        scheduledExecutorService.scheduleAtFixedRate(new Runnable() {
-            @Override
-            public void run() {
-                System.out.println("测试测试ScheduledThreadPoolExecutor");
-            }
-        }, 1, 1, TimeUnit.SECONDS);
+        scheduledExecutorService.scheduleAtFixedRate(() -> System.out.println("测试测试ScheduledThreadPoolExecutor"), 1, 1, TimeUnit.SECONDS);
         //主线程休眠10秒
         Thread.sleep(10000);
         System.out.println("正在关闭线程池...");

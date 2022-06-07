@@ -15,7 +15,7 @@ public class SimpleDateFormatTest07 {
     private static final int EXECUTE_COUNT = 1000;
     //同时运行的线程数量
     private static final int THREAD_COUNT = 20;
-    private static DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+    private static final DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
 
     public static void main(String[] args) throws InterruptedException {
         final Semaphore semaphore = new Semaphore(THREAD_COUNT);

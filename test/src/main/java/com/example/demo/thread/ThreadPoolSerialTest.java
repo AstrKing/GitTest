@@ -50,16 +50,11 @@ public class ThreadPoolSerialTest {
         int maxMumPoolSize = 6;
         long keepAliveTime = 2;
         TimeUnit unit = TimeUnit.SECONDS;
-        ArrayBlockingQueue<Runnable> workQueue = new ArrayBlockingQueue<Runnable>(2);
+        ArrayBlockingQueue<Runnable> workQueue = new ArrayBlockingQueue<>(2);
         ThreadPoolExecutor threadPoolExecutor = null;
         try {
             //创建线程池
-            threadPoolExecutor = new ThreadPoolExecutor(corePoolSize,
-                    maxMumPoolSize,
-                    keepAliveTime,
-                    unit,
-                    workQueue,
-                    new ThreadPoolExecutor.DiscardOldestPolicy());
+            threadPoolExecutor = new ThreadPoolExecutor(corePoolSize, maxMumPoolSize, keepAliveTime, unit, workQueue, new ThreadPoolExecutor.DiscardOldestPolicy());
 
             //循环提交任务
             for (int i = 0; i < 9; i++) {
@@ -81,6 +76,7 @@ public class ThreadPoolSerialTest {
         } catch (InterruptedException e) {
             e.printStackTrace();
         } finally {
+            assert threadPoolExecutor != null;
             threadPoolExecutor.shutdown();
         }
     }

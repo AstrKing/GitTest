@@ -9,7 +9,7 @@ public class WaitingTime implements Runnable{
     }
 
     //线程等待多少秒
-    public static final void waitSecond(long seconds){
+    public static void waitSecond(long seconds){
         try {
             TimeUnit.SECONDS.sleep(seconds);
         } catch (InterruptedException e) {

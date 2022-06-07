@@ -5,6 +5,9 @@ public class Chef extends Person {
     @DIYFieldAnnotation(sex = "男")
     private String sex;
 
+    public Chef() {
+    }
+
     @Override
     public void hobby() {
 

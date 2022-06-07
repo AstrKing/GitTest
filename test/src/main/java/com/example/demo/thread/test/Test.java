@@ -9,10 +9,6 @@ public class Test {
 
 class Aobing extends Thread{
     private boolean flag = false;
-
-    public boolean isFlag(){
-        return flag;
-    }
     @Override
     public void run() {
         try {

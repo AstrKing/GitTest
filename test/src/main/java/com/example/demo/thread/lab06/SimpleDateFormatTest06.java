@@ -12,7 +12,7 @@ public class SimpleDateFormatTest06 {
     private static final int EXECUTE_COUNT = 1000;
     private static final int THREAD_COUNT = 20;
 
-    private static ThreadLocal<DateFormat> threadLocal = new ThreadLocal<DateFormat>();
+    private static final ThreadLocal<DateFormat> threadLocal = new ThreadLocal<>();
     private static DateFormat getDateFormat(){
         DateFormat dateFormat = threadLocal.get();
         if(dateFormat == null){
@@ -33,11 +33,7 @@ public class SimpleDateFormatTest06 {
                     semaphore.acquire();
                     try {
                         getDateFormat().parse("2020-01-01");
-                    } catch (ParseException e) {
-                        System.out.println("线程：" + Thread.currentThread().getName() + " 格式化日期失败");
-                        e.printStackTrace();
-                        System.exit(1);
-                    }catch (NumberFormatException e){
+                    } catch (ParseException | NumberFormatException e) {
                         System.out.println("线程：" + Thread.currentThread().getName() + " 格式化日期失败");
                         e.printStackTrace();
                         System.exit(1);
