@@ -14,6 +14,8 @@ public class Test1 {
      * 没有的话，会在常量池中添加，然后引用
      *
      * final修饰的话，直接成变量了
+     *
+     * 只要带new了，要用equals来比较
      */
     @Test
     public void test1() {

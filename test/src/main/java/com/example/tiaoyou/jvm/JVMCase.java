@@ -5,7 +5,7 @@ package com.example.tiaoyou.jvm;
  * @date 2022/6/9
  */
 public class JVMCase {
-    // 常量，被final修饰了，同理我们之前string里面学到的也是
+    // 常量，被final修饰了，同理我们之前string里面学到的也是，这个就是直接被加入到常量池里面
     public final static String MAN_SEX_TYPE = "man";
     // 静态变量
     public static String WOMAN_SEX_TYPE = "woman";
@@ -22,17 +22,19 @@ public class JVMCase {
         //  调用非静态方法
         jvmCase.sayHello(stu);
     }
+
     // 常规静态方法
-    public static void print(Student stu){
+    public static void print(Student stu) {
         System.out.println(stu.getName() + stu.getSexType());
     }
+
     // 非静态方法
-    public void sayHello(Student stu){
+    public void sayHello(Student stu) {
         System.out.println(stu.getName() + "say:hello");
     }
 }
 
-class Student{
+class Student {
     String name;
     String sexType;
     int age;
