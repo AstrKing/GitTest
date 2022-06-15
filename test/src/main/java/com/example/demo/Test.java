@@ -16,6 +16,8 @@ import java.util.ArrayList;
  * 加两个int，是12+4+4=20，那再补齐至8的倍数，就是24个字节
  *
  * 如果是一个数组,那么咱们存储的是数组的长度，那就是一个int，是4个字节
+ *
+ *
  */
 @Slf4j
 public class Test {
